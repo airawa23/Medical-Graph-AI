@@ -39,5 +39,5 @@ Jalankan skrip secara berurutan di terminal:
 
 ## 🧠 Penjelasan Logika Cypher & Pipeline AI
 * **Logika Cypher:** Kami menggunakan klausa `MERGE` alih-alih `CREATE` untuk memastikan operasi bersifat *idempotent* (mencegah duplikasi data jika skrip dijalankan ulang). Untuk Graph Analytics, kami menggunakan `gds.nodeSimilarity.write` untuk menghitung skor kemiripan fitur secara *in-memory* dan langsung memproyeksikannya kembali ke database sebagai garis (relasi) baru bernama `SIMILAR_TO`.
-* **Pipeline AI:** 1. **Prompt Engineering for JSON:** AI dipaksa bertindak sebagai ekstraktor data (*Graph Builder*) dengan output wajib JSON murni agar mudah di-*parsing* oleh Python menjadi Node di Neo4j.
+* **Pipeline AI:** 1. **Prompt Engineering for JSON:** AI bertindak sebagai ekstraktor data (*Graph Builder*) dengan output wajib JSON murni agar mudah di-*parsing* oleh Python menjadi Node di Neo4j.
   2. **Fallback Mechanism:** Pipeline AI dilengkapi dengan `try-except` dan `time.sleep()` untuk menangani *Rate Limit* dari API gratis OpenRouter.
