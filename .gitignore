@@ -1,0 +1,8 @@
+# Mengabaikan folder environment dan cache Python
+__pycache__/
+venv/
+env/
+.env
+
+# Mengabaikan konfigurasi sistem
+.DS_Store
