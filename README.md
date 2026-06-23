@@ -4,7 +4,7 @@ Proyek ini adalah implementasi Sistem Tanya Jawab Medis (RAG) dan Analitik Graf 
 
 ## 🏗️ Arsitektur Sistem
 Sistem ini dibangun dengan arsitektur pipa data (*data pipeline*) berikut:
-1. **Core Data Ingestion:** Membaca data `main.csv` (134 penyakit, 408 gejala) dan memasukkannya ke Neo4j sebagai node `Disease` dan `Symptom`.
+1. **Core Data Ingestion:** Membaca data `Diseases and Symptoms Database.csv` (134 penyakit, 408 gejala) dan memasukkannya ke Neo4j sebagai node `Disease` dan `Symptom`.
 2. **LLM Graph Builder (Enrichment):** Menggunakan LLM (OpenRouter/Llama 3) untuk mengekstrak informasi obat berdasarkan nama penyakit, lalu membuat node `Drug` dan relasi `TREATED_WITH`.
 3. **Synthetic Data Generation:** Menggunakan library `Faker` untuk membuat data `Patient` fiktif yang dihubungkan dengan penyakit (`DIAGNOSED_WITH`) dan gejalanya (`EXHIBITS`).
 4. **Graph Machine Learning (GDS):** Menjalankan algoritma *Jaccard Node Similarity* untuk menemukan tingkat kemiripan antar-penyakit berdasarkan gejalanya, dan menyimpannya sebagai relasi `SIMILAR_TO`.
